@@ -5,16 +5,25 @@ const Tag = require('./Tag');
 const ProductTag = require('./ProductTag');
 
 // Products belongsTo Category
-
+  Product.belongsTo(Category);
+// dont include the AS from the mini project follow the mini project. 
 // Categories have many Products
-
+  Category.hasMany(Product);
 // Products belongToMany Tags (through ProductTag)
-
+  Product.belongsToMany(Tag, {
+    through: {
+      model: ProductTag,
+      unique: false
+    },
+  });
 // Tags belongToMany Products (through ProductTag)
+  Tag.belongsToMany(Product, {
+    through: {
+      model: ProductTag,
+      unique: false
+    },
+  });
 
-module.exports = {
-  Product,
-  Category,
-  Tag,
-  ProductTag,
-};
+module.exports = { Product, Category, Tag, ProductTag};
+
+// the API routes category, product and tag all have API routes. 
