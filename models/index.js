@@ -6,7 +6,6 @@ const ProductTag = require('./ProductTag');
 
 // Products belongsTo Category
   Product.belongsTo(Category);
-// dont include the AS from the mini project follow the mini project. 
 // Categories have many Products
   Category.hasMany(Product);
 // Products belongToMany Tags (through ProductTag)
