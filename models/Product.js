@@ -29,9 +29,12 @@ Product.init(
       allowNull: false
     },
     category_id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
-      foreignKey: true,
+      references: {
+        model: 'category',
+        key: 'id'
+      }
       // category_id = category(id)
     }
   },
